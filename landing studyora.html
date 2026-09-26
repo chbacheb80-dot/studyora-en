@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studyora - المتجر الرسمي وصفحة الهبوط</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-dark: #3730A3;
+            --secondary: #06B6D4;
+            --accent: #F59E0B;
+            --whatsapp: #25D366;
+            --bg-dark: #0F172A;
+            --bg-card: #1E293B;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --border: #334155;
+            --gradient: linear-gradient(135deg, #6366F1 0%, #A855F7 50%, #EC4899 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 50px 0 30px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+
+        .offline-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            color: #34D399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* Store Products Grid */
+        .store-section {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .price-badge {
+            background: rgba(245, 158, 11, 0.15);
+            color: #FBBF24;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 14px;
+            float: left;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: 800;
+            margin: 10px 0;
+        }
+
+        .product-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-direct {
+            background: var(--whatsapp);
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: 700;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .btn-add-cart {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-add-cart:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Cart Section */
+        .cart-section {
+            background: #111827;
+            border: 2px dashed var(--primary);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .cart-items {
+            margin: 15px 0;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cart-total {
+            font-size: 20px;
+            font-weight: 800;
+            color: #FBBF24;
+            text-align: right;
+            margin: 15px 0;
+        }
+
+        .btn-checkout {
+            background: var(--whatsapp);
+            color: #fff;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* Payment Methods */
+        .payment-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 40px 0;
+        }
+
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .payment-box {
+            background: #0F172A;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .rip-code {
+            background: #1E293B;
+            padding: 8px;
+            border-radius: 6px;
+            color: #FBBF24;
+            font-family: monospace;
+            text-align: center;
+            margin: 8px 0;
+            direction: ltr;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo-box">
+                <div class="logo-icon">S</div>
+                <div class="logo-text">Studyora Store</div>
+            </div>
+            <div style="font-size: 13px; color: var(--text-muted);">تطبيق الدراسة الذكي</div>
+        </header>
+
+        <!-- Hero Landing -->
+        <section class="hero">
+            <h1>طريقتك الذكية للتفوق <br><span>باللغة التي تختارها أنت</span></h1>
+            <p>تطبيـق Studyora يمنحك تجربة دراسية متكاملة بدون تشتت. اختر النسخة المناسبة واطلبها فوراً.</p>
+            <div class="offline-badge">📶 يعمل 100% بدون إنترنت (Offline)</div>
+        </section>
+
+        <!-- Store Section -->
+        <section class="store-section">
+            <h2 class="section-title">🛒 متجر المنتجات الرقمية</h2>
+            
+            <div class="cards-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div>
+                        <span class="price-badge">500 دج</span>
+                        <div class="product-title">🇩🇿 النسخة العربية</div>
+                        <div class="product-desc">مخصصة لطلبة المناهج العربية والبكالوريا لتنظيم الدروس والمراجعة.</div>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn-add-cart" onclick="addToCart('Studyora النسخة العربية', 500)">🛒 إضافة للسلة</button>
+                        <a href="https://wa.me/213661234567?text=أريد%20شراء%20النسخة%20العربية" target="_blank" class="btn-buy btn-direct">💬 طلب مباشر عبر الواتساب</a>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div>
+                        <span class="price-badge">500 دج</span>
+                        <div class="product-title">🇫🇷 Version Française</div>
+                        <div class="product-desc">Conçue pour les étudiants universitaires et scientifiques.</div>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn-add-cart" onclick="addToCart('Studyora Version FR', 500)">🛒 إضافة للسلة</button>
+                        <a href="https://wa.me/213661234567?text=Je%20souhaite%20acheter%20Version%20FR" target="_blank" class="btn-buy btn-direct">💬 Commander via WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div>
+                        <span class="price-badge">500 دج</span>
+                        <div class="product-title">🇬🇧 English Edition</div>
+                        <div class="product-desc">Optimized for tech and language students seeking focus.</div>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn-add-cart" onclick="addToCart('Studyora English Version', 500)">🛒 إضافة للسلة</button>
+                        <a href="https://wa.me/213661234567?text=I%20want%20to%20buy%20English%20Version" target="_blank" class="btn-buy btn-direct">💬 Buy via WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Product 4 (Bundle) -->
+                <div class="product-card" style="border-color: var(--accent);">
+                    <div>
+                        <span class="price-badge" style="background: var(--accent); color: #000;">1000 دج</span>
+                        <div class="product-title">🔥 الحزمة الشاملة (3 في 1)</div>
+                        <div class="product-desc">احصل على النسخ الثلاث كاملة ووفر 500 دج مع تفعيل مدى الحياة.</div>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn-add-cart" onclick="addToCart('الحزمة الشاملة (3 في 1)', 1000)">🛒 إضافة للسلة</button>
+                        <a href="https://wa.me/213661234567?text=أريد%20شراء%20الحزمة%20الشاملة" target="_blank" class="btn-buy btn-direct" style="background: linear-gradient(135deg, #F59E0B, #D97706);">🚀 طلب الحزمة الكاملة</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Cart Section -->
+        <section class="cart-section">
+            <h3 style="font-size: 20px;">🛍️ سلة الطلبات التفاعلية</h3>
+            <div class="cart-items" id="cartItems">
+                <p style="color: var(--text-muted); font-size: 14px;">السلة فارغة حالياً. قم بفي إضافة المنتجات أعلاه.</p>
+            </div>
+            <div class="cart-total" id="cartTotal">المجموع: 0 دج</div>
+            <button class="btn-checkout" onclick="sendCartToWhatsApp()">💬 إرسال كل الطلب عبر الواتساب</button>
+        </section>
+
+        <!-- Payment Methods -->
+        <section class="payment-section">
+            <h3 style="font-size: 20px; text-align: center;">💳 طرق الدفع المتاحة في الجزائر</h3>
+            <div class="payment-grid">
+                <div class="payment-box">
+                    <h4 style="color: #06B6D4;">📱 BaridiMob</h4>
+                    <p style="font-size: 12px; color: var(--text-muted);">رقم الـ RIP:</p>
+                    <div class="rip-code">007 99999 0000000000 00</div>
+                </div>
+                <div class="payment-box">
+                    <h4 style="color: #F59E0B;">🏛️ CCP</h4>
+                    <p style="font-size: 13px;">رقم الحساب: <b>12345678 Clé 99</b></p>
+                    <p style="font-size: 13px;">الاسم: <b>ضع اسمك الكامل هنا</b></p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>جميع الحقوق محفوظة © 2026 لتطبيق Studyora</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript for Cart Functionality -->
+    <script>
+        let cart = [];
+        const phone = "213661234567"; // ضع رقمك هنا
+
+        function addToCart(title, price) {
+            cart.push({ title, price });
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartTotalContainer = document.getElementById('cartTotal');
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="color: var(--text-muted); font-size: 14px;">السلة فارغة حالياً.</p>';
+                cartTotalContainer.innerText = 'المجموع: 0 دج';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                total += item.price;
+                html += `
+                    <div class="cart-item">
+                        <span>${item.title}</span>
+                        <div>
+                            <b style="color: #FBBF24;">${item.price} دج</b>
+                            <button onclick="removeFromCart(${index})" style="background: transparent; border: none; color: #EF4444; margin-right: 10px; cursor: pointer;">❌</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartItemsContainer.innerHTML = html;
+            cartTotalContainer.innerText = `المجموع: ${total} دج`;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function sendCartToWhatsApp() {
+            if (cart.length === 0) {
+                alert('الرجاء إضافة منتج واحد على الأقل للسلة أولاً.');
+                return;
+            }
+
+            let text = "مرحباً، أريد طلب المنتجات التالية من متجر Studyora:\n\n";
+            let total = 0;
+
+            cart.forEach((item, i) => {
+                text += `${i + 1}. ${item.title} - ${item.price} دج\n`;
+                total += item.price;
+            });
+
+            text += `\nالمجموع الإجمالي: ${total} دج`;
+            text += `\n\nيرجى تزويدي برابط التحميل وخطوات الدفع.`;
+
+            const encodedText = encodeURIComponent(text);
+            window.open(`https://wa.me/${phone}?text=${encodedText}`, '_blank');
+        }
+    </script>
+</body>
+</html>
